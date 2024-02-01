@@ -41,6 +41,8 @@ class ComicController extends Controller
     public function show(string $id)
     {
         //
+
+
     }
 
     /**
