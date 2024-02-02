@@ -47,7 +47,7 @@
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Tipo</label>
     <input type="text"  class="form-control" name="type" >
-  </div>
+  {{-- </div>
 
      <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Artists</label>
@@ -57,7 +57,7 @@
      <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Writers</label>
     <input type="text"  class="form-control" name="writers" >
-  </div>
+  </div> --}}
 
    
   <button type="submit" class="btn btn-primary">Submit</button>
