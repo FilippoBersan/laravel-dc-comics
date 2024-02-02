@@ -9,9 +9,11 @@
 <body>
   <h1>Comics</h1>
   <a href="{{route('comicses.create')}}">Crea nuovo Comic</a>
+   
   <ul>
     @foreach ($comicses as $comic)
-        <li> {{$comic->title}} - {{$comic->id}} - <a href="{{route('comicses.show' , $comic->id)}}">view details</a> </li>
+        <li> {{$comic->title}} - {{$comic->id}} - <a href="{{route('comicses.show' , $comic->id)}}">view details</a>  ---
+         <a href="{{route('comicses.edit' , $comic->id)}}" alt="Comic">Aggiorna Comic</a></li>
     @endforeach
   </ul>
   
