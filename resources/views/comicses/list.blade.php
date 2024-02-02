@@ -10,7 +10,7 @@
   <h1>Comics</h1>
   <ul>
     @foreach ($comicses as $comic)
-        <li> {{$comic->title}} - <a href="">view details</a> </li>
+        <li> {{$comic->title}} - {{$comic->id}} - <a href="{{route('comicses.show' , $comic->id)}}">view details</a> </li>
     @endforeach
   </ul>
   
