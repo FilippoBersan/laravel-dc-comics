@@ -13,42 +13,52 @@
   <h1>Modifica comic : {{$comic->title}}</h1>
   <a href="{{route('comicses.index')}}">Torna alla lista comics</a>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
   <form action="{{ route('comicses.update', $comic->id)}} " method="POST">
     @csrf
     @method('PUT')
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Titolo comic</label>
-    <input type="text" class="form-control" name="title" value="{{$comic->title}}">
+    <input type="text" class="form-control" name="title" value="{{old('title' , $comic->title)}}">
    </div>
 
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Descrizione</label>
-    <textarea type="text"  class="form-control" name="description" >{{$comic->description}}</textarea> </textarea>
+    <textarea type="text"  class="form-control" name="description" >{{old('description', $comic->description)}}</textarea> </textarea>
   </div>
   
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Thumb</label>
-    <input type="text"  class="form-control" name="thumb" value="{{$comic->thumb}}">
+    <input type="text"  class="form-control" name="thumb" value="{{old('thumb' , $comic->thumb)}}">
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Prezzo</label>
-    <input type="text"  class="form-control" name="price"value="{{$comic->price}}" >
+    <input type="text"  class="form-control" name="price"value="{{old('price', $comic->price)}}" >
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Serie</label>
-    <input type="text"  class="form-control" name="series" value="{{$comic->series}}">
+    <input type="text"  class="form-control" name="series" value="{{old('series', $comic->series)}}">
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Uscita data</label>
-    <input type="text"  class="form-control" name="sale_date" value="{{$comic->sale_date}}">
+    <input type="text"  class="form-control" name="sale_date" value="{{old('sale_date', $comic->sale_date)}}">
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Tipo</label>
-    <input type="text"  class="form-control" name="type" value="{{$comic->type}}" >
+    <input type="text"  class="form-control" name="type" value="{{old('type', $comic->type)}}" >
   {{-- </div>
 
      <div class="mb-3">

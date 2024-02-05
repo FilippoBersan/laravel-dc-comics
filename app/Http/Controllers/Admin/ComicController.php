@@ -107,6 +107,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+
+           $data = $this->validation($request->all());
         //
         
             $data = $request->all();
@@ -125,6 +128,8 @@ class ComicController extends Controller
                 return redirect()->route('comicses.show', $comic->id);
     
         //  $comic = Comic::findOrFail ($id);
+
+     
     }
 
     /**
@@ -159,7 +164,7 @@ class ComicController extends Controller
                Rule::in(['comic book', 'graphic novel']),
                 
              ],
-                    'price' => 'required|numeric|min:5|max:200',
+                    'price' => 'required|numeric|min:1|max:200',
 
 
 
