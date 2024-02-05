@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -33,6 +35,26 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+
+
+    //    $request->validate([
+    //          'title' => 'required|max:40',
+    //          'type' => [
+    //           'required',
+    //            Rule::in(['comic book', 'graphic novel']),
+                
+    //          ],
+    //                 'price' => 'required|numeric|min:5|max:200',
+
+
+
+
+
+    //    ]);
+
+
+       $data = $this->validation($request->all());
+
         //
         $data = $request->all();
 
@@ -117,4 +139,57 @@ class ComicController extends Controller
      $comic->delete();
      return redirect()->route('comicses.index', $comic->id);
     }
+
+
+
+
+
+
+
+
+
+    private function validation($data)
+{
+
+    $validator = Validator::make($data,[
+
+ 'title' => 'required|min:3|max:40',
+             'type' => [
+              'required',
+               Rule::in(['comic book', 'graphic novel']),
+                
+             ],
+                    'price' => 'required|numeric|min:5|max:200',
+
+
+
+
+
+            ],
+            [
+                'title.required' => 'Il titolo è obbligatorio',
+                'title.min' => 'Il titolo deve essere lungo almeno 3 caratteri',
+                'title.max' => 'Il titolo può contenere massimo 40 caratteri',
+                'type.required' => 'Il titolo è obbligatorio e deve essere : comic book oppure graphic novel',
+                'price.required' => 'Il prezzo è obbligatorio',
+
+
+
+
+
+
+            ])->validate();
+
+
+            return $validator;
+
+
+
+    
 }
+
+
+
+}
+
+

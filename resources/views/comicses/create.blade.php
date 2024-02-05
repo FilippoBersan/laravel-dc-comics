@@ -16,37 +16,47 @@
     @csrf
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Titolo comic</label>
-    <input type="text" class="form-control" name="title">
+    <input type="text" class="form-control" name="title"   class="@error('title') is-invalid @enderror" value='{{old('title')}}' >
+     
+@error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
    </div>
 
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Descrizione</label>
-    <textarea type="text"  class="form-control" name="description"></textarea> </textarea>
+    <textarea type="text"  class="form-control" name="description" value='{{old('description')}}'></textarea> </textarea>
   </div>
   
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Thumb</label>
-    <input type="text"  class="form-control" name="thumb" >
+    <input type="text"  class="form-control" name="thumb" value='{{old('thumb')}}'>
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Prezzo</label>
-    <input type="text"  class="form-control" name="price" >
+    <input type="text"  class="form-control" name="price" class="@error('price') is-invalid @enderror" value='{{old('price')}}'>
+       @error('price')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Serie</label>
-    <input type="text"  class="form-control" name="series" >
+    <input type="text"  class="form-control" name="series" value='{{old('series')}}' >
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Uscita data</label>
-    <input type="text"  class="form-control" name="sale_date" >
+    <input type="text"  class="form-control" name="sale_date" value='{{old('sale_date')}}' >
   </div>
 
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Tipo</label>
-    <input type="text"  class="form-control" name="type" >
+    <input type="text"  class="form-control" name="type" class="@error('type') is-invalid @enderror" value='{{old('type')}}' >
+    @error('type')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
   {{-- </div>
 
      <div class="mb-3">
